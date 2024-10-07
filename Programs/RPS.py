@@ -55,4 +55,4 @@ while True: # the main loop
     elif player_move == 's' and computer_move == 'r':
          print('You lose!')
          print("--------------new game---------------")
-         losses = losses + 1
+         losses = losses + 1  
