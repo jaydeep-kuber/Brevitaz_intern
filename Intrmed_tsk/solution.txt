@@ -1,0 +1,2 @@
+# all the solution of intermediate task of cron job is written in this file.
+

@@ -1,0 +1,59 @@
+# this file contain solution of all basic cron practice tasks.
+
+# 1. crone job to creat a txt file in /xyz dir in every minut
+* * * * * mkdir -p /xyz/dir$(date +\%Y\%m\%d\%H\%M\%S)
+
+# 2. cron job to append the curernt date and time in every 5 mins in the file called
+# 	dateTime.log  in any dir.
+# 	create a script file. i created on desktop
+
+# 	file:
+#	!/bin/bash
+#	curr_dt=$(date "+%Y-%m-%d_%H:%M")
+#	echo "Current date: $curr_dt"
+#	echo "Current dateTime: $curr_dt" >> /home/jaydeep/Desktop/Cron/basic_tsk/....>
+#	cron job:
+*/5 * * * *  /home/jaydee/Desktop/dateTime.sh	
+
+# 3. cron job for deleting files from specific directory
+# 	i did prepare two scripts, one for creating 2 files in 1hr then
+#	then delete one oldesfile in 1hr.
+
+#	creatFile.sh:
+#	#!/bin/bash
+# 	id for give uniq name of file
+#	id=$(date +%H:%M)
+# 	path where all files will created
+#	dir_path=/home/jaydeep/Desktop/TempDir
+# 	command to create files
+#	touch $dir_path/file_$id.txt
+# 	log for  track progress
+# 	echo "file_$id.txt is creted at $id time" >> $dir_path/del_logs.log
+
+#	delFiles.sh:
+# 	!/bin/bash
+# 	Directory where the files are stored
+#	directory="/home/jaydeep/Desktop/TempDir"
+# 	Find the oldest file in the directory
+#	oldest_file=$(ls -t "$directory" | tail -n 1)
+# 	Check if the directory is not empty
+#	if [ -z "$oldest_file" ]; then
+#		echo "directory is empty"
+#    		exit 1
+#	fi
+# 	Full path to the oldest file
+#	oldest_file_path="$directory/$oldest_file"
+# 	Delete the oldest file
+#	rm -f  "$oldest_file_path"
+# 	Log
+# 	time of deletion
+# 	curr_time=$(date +%H:%M)
+# 	echo "$oldest_file, is Deleted from $oldest_file_path at $curr_time" >> /home/jaydeep/Desktop/TempDir/del_logs.log
+#	echo "-----------------------" >> /home/jaydeep/Desktop/TempDir/del_logs.log
+
+#	crons:
+# 	create files:
+25 * * * * /home/jaydeep/Desktop/creatFile.sh
+50 * * * * /home/jaydeep/Desktop/creatFile.sh
+#	delete file:
+0 * * * * /home/jaydeep/Desktop/delFiles.sh
