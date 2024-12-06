@@ -1,3 +1,16 @@
+'''
+run this program as default argumented, use Command: python3 nfiles_cli.py
+if you want to pass any arguments explicitly  then command will different, you need to pass arguments though command line. 
+
+--num: this is the number of file you want to generate
+--prefix: this is the prefix of your filenaming
+--ext: this is the extension of your file
+--path: this is path where you files will located after exicution over.
+
+Example command: python3 nfiles_cli.py --num 10 --prefix dump --ext txt --path path/to/destination
+
+'''
+
 import os
 import sys
 import datetime
