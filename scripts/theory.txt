@@ -1,0 +1,51 @@
+Types of shall
+    1. bash
+    2. sh
+    3. ksh
+    4. fish
+    5. tsh
+    6. zsh
+- to check your defaul shell
+    echo $0
+shebang: #!/bin/bash : interpreter
+
+- To run script
+    1. make sure have 'rwx' or '700' or '770' permission
+        to give this permission use: chmode [permission] fileName
+    2. Commandsfor run: 
+        ./script.sh
+        /path/script.sh
+        bash script.sh
+    ctrl+c to terimante / ctrl+z to stop
+
+- Commanets
+    - single line: '#' ex: # this is sigle line comment
+    - Multi-iline:  
+        << comment
+        ...
+        this is multiline comment
+        ...
+        comment , note : delimited line error :   
+
+--- variables ---
+
+var_name=name note:space error:
+# var to store output of command
+var_name=$(hostname)
+date=$(date) 
+
+# const variable
+readonly var_name="val"
+
+use var ($) : command "using variables: this is var, $var_name"
+
+--- arrays ---
+
+- values are space pareated in array declaration. 
+
+myArr=(1 2 hello "hey man")
+
+- how to get val from array
+
+echo "${myArr[0]}"
+echo "${myArr[1]}"
